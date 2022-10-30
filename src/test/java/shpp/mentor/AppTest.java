@@ -10,11 +10,45 @@ public class AppTest extends App {
 
     @Test
     void testMain() {
-        String actual=multNumber("25;255;2",Integer.MAX_VALUE);
+        String actual = multNumber("25;255;2", Integer.MAX_VALUE);
+        String expected = "Procedure successful";
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void testMain1() {
+        String actual=multNumber("25.45;255.87;2.4",Float.MAX_VALUE);
         String expected="Procedure successful";
         Assertions.assertEquals(expected, actual);
-        String actual1=multNumber("25.45;255.87;2.4",Float.MAX_VALUE);
-        String expected1="Procedure successful";
-        Assertions.assertEquals(expected1, actual1);
     }
+    @Test
+    void testMaxValueSet1() {
+        double actual = maxValueSet("byte");
+        double expected=Byte.MAX_VALUE;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void testMaxValueSet4() {
+        double actual = maxValueSet("float");
+        double expected=Float.MAX_VALUE;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void testMaxValueSet3() {
+        double actual = maxValueSet("short");
+        double expected=Short.MAX_VALUE;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void testMaxValueSet2() {
+        double actual = maxValueSet("long");
+        double expected=Long.MAX_VALUE;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    void testMaxValueSet() {
+        double actual = maxValueSet("double");
+        double expected=Double.MAX_VALUE;
+        Assertions.assertEquals(expected, actual);
+    }
+
 }

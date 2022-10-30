@@ -16,7 +16,6 @@ public class App {
             Properties myProp = new Properties();
             input = new FileInputStream(FILE_NAME);
             myProp.load(input);
-            double maxValue=Integer.MAX_VALUE;
             String dataType;
             dataType=System.getProperty("type") != null?System.getProperty("type"):"int";
             String arguments = myProp.getProperty("min") + ";" + myProp.getProperty("max") +
@@ -24,31 +23,37 @@ public class App {
             if  (arguments.contains(".") && (Objects.equals(dataType, "int") || Objects.equals(dataType, "byte"))){
                 logger.error("Input data dont match type!");
             } else {
-                    switch (dataType) {
-                        case "double":
-                            maxValue = Double.MAX_VALUE;
-                            break;
-                        case "long":
-                            maxValue = Long.MAX_VALUE;
-                            break;
-                        case "short":
-                            maxValue = Short.MAX_VALUE;
-                            break;
-                        case "byte":
-                            maxValue = Byte.MAX_VALUE;
-                            break;
-                        case "float":
-                            maxValue = Float.MAX_VALUE;
-                            break;
-                        default:
-                    }
-                    logger.info(multNumber(arguments, maxValue));
+                double maxValue=maxValueSet(dataType);
+                logger.info(multNumber(arguments, maxValue));
                 }
         }catch (IOException e){
             logger.error(String.valueOf(e));
         }finally {
             input.close();
         }
+    }
+
+    public static double maxValueSet(String args) {
+        double maxValue=Integer.MAX_VALUE;
+         switch (args) {
+             case "double":
+                 maxValue = Double.MAX_VALUE;
+                 break;
+             case "long":
+                 maxValue = Long.MAX_VALUE;
+                 break;
+             case "short":
+                 maxValue = Short.MAX_VALUE;
+                 break;
+             case "byte":
+                 maxValue = Byte.MAX_VALUE;
+                 break;
+             case "float":
+                 maxValue = Float.MAX_VALUE;
+                 break;
+             default:
+         }
+         return maxValue;
     }
 
     public static String multNumber(String args,double maxValue) {
