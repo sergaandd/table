@@ -25,6 +25,9 @@ public class App {
                 logger.error("Input data do not match type!");
             } else {
                     switch (dataType) {
+                        case "double":
+                            maxValue = Double.MAX_VALUE;
+                            break;
                         case "long":
                             maxValue = Long.MAX_VALUE;
                             break;
