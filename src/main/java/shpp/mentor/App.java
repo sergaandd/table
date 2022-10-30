@@ -67,7 +67,7 @@ public class App {
                     result.append(j).append("*").append(i).append("=").append(Multy.MultyDouble(i, j) < maxValue ?
                             Multy.MultyDouble(i, j) : "*****").append("    ");
                 }
-                logger.info(result.toString());
+                logger.info(String.valueOf(result));
                 result = new StringBuilder();
             }
             message="Procedure successful";
