@@ -22,7 +22,7 @@ public class App {
             String arguments = myProp.getProperty("min") + ";" + myProp.getProperty("max") +
                     ";" + myProp.getProperty("ink");
             if  (arguments.contains(".") && (Objects.equals(dataType, "int") || Objects.equals(dataType, "byte"))){
-                logger.error("Input data do not match type!");
+                logger.error("Input data dont match type!");
             } else {
                     switch (dataType) {
                         case "double":
