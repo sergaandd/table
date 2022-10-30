@@ -18,7 +18,7 @@ public class App {
             myProp.load(input);
             double maxValue=Integer.MAX_VALUE;
             String dataType;
-            dataType=System.getProperty("type") != null?dataType=System.getProperty("type"):"int";
+            dataType=System.getProperty("type") != null?System.getProperty("type"):"int";
             String arguments = myProp.getProperty("min") + ";" + myProp.getProperty("max") +
                     ";" + myProp.getProperty("ink");
             if  (arguments.contains(".") && (Objects.equals(dataType, "int") || Objects.equals(dataType, "byte"))){
@@ -53,7 +53,7 @@ public class App {
 
     public static String multNumber(String args,double maxValue) {
         String[] parts = args.split(";");
-        String result = "";
+        StringBuilder result = new StringBuilder();
         logger.info("From "+parts[0]+"     to "+parts[1]+"    step "+parts[2]+"    data type "+
                 System.getProperty("type")+"    Max value "+maxValue);
         logger.info("----------------------------------------------------------------------------------------------");
@@ -64,11 +64,11 @@ public class App {
             double ink = Double.parseDouble(parts[2]);
             for (double j = min; j <= max; j += ink) {
                 for (double i = min; i <= max; i += ink) {
-                    result += (j + "*" + i + "=" +
-                            (Multy.MultyDouble(i,j)<maxValue?Multy.MultyDouble(i,j):"*****") + "    ");
+                    result.append(j).append("*").append(i).append("=").append(Multy.MultyDouble(i, j) < maxValue ?
+                            Multy.MultyDouble(i, j) : "*****").append("    ");
                 }
-                logger.info(result);
-                result = "";
+                logger.info(result.toString());
+                result = new StringBuilder();
             }
             message="Procedure successful";
         }else{
@@ -77,11 +77,11 @@ public class App {
             long ink = Long.parseLong(parts[2]);
             for (long j = min; j <= max; j += ink) {
                 for (long i = min; i <= max; i += ink) {
-                    result += (j + "*" + i + "=" +
-                            (Multy.MultyLong(i,j)<maxValue?Multy.MultyLong(i,j):"*****")+ "    ");
+                    result.append(j).append("*").append(i).append("=").append(Multy.MultyLong(i, j) < maxValue ?
+                            Multy.MultyLong(i, j) : "*****").append("    ");
                 }
-                logger.info(result);
-                result = "";
+                logger.info(result.toString());
+                result = new StringBuilder();
             }
             message="Procedure successful";
         }
