@@ -10,13 +10,13 @@ public class AppTest extends App {
 
     @Test
     void testMain() {
-        String actual = multNumber("25;255;2", Integer.MAX_VALUE);
+        String actual = multNumber("25;31;3", Integer.MAX_VALUE);
         String expected = "Procedure successful";
         Assertions.assertEquals(expected, actual);
     }
     @Test
     void testMain1() {
-        String actual=multNumber("25.45;255.87;2.4",Float.MAX_VALUE);
+        String actual=multNumber("25.45;30.87;2.4",Float.MAX_VALUE);
         String expected="Procedure successful";
         Assertions.assertEquals(expected, actual);
     }

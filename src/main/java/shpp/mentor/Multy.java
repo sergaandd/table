@@ -1,7 +1,5 @@
 package shpp.mentor;
 
-import java.math.BigDecimal;
-
 public class Multy {
 
     public static long MultyLong(long i,long j){

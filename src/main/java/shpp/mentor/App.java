@@ -33,6 +33,8 @@ public class App {
         }
     }
 
+
+
     public static double maxValueSet(String args) {
         double maxValue=Integer.MAX_VALUE;
          switch (args) {
